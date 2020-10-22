@@ -6,15 +6,19 @@
 <style>
     body{background-color:aliceblue;}
     .numeros{
-        padding:20px;
+        padding:50px;
     }
     button{background-color:white;border:1px solid #333; border-radius:50px;margin-left: 20px;}
     button:hover{background-color:aqua;color:white;}
     .escolha{ font-size:20px;padding-left:20px;}
+    #section1{width:50%;float:left;}
+    #section2{width:50%;float:right;}
     
 </style>
 </head>
 <body>
+<section id="section1">
+    <h1> Calculadora</h1>
     <form class="numeros">
         <p>Número 1</p>
 <input type="number" id="num1">
@@ -32,6 +36,18 @@
   </select>
     <button onclick="myfunction()">Calcular</button>
     </form> 
+</section>
+    <section id="section2">
+       <h1> Calculadora de descontos</h1>
+           <form class="numeros">
+        <p>Valor</p>
+<input type="number" id="valor">
+        <br><br>
+        <p>Desconto</p>
+<input type="number" id="desconto">
+<button onclick="myfunction1()">Calcular desconto</button>
+</form>
+    </section>
 </body>    
 <script>
     function myfunction(){
@@ -57,6 +73,16 @@
                     console.log(`escolha alguma operação a ser feita.`);
             }
         }
+    }
+    function myfunction1(){
+        var valor = document.getElementById("valor").value;
+        var desconto = document.getElementById("desconto").value;
+        if (valor > 0 && desconto>=0 && desconto <=100){
+        var desc1=desconto/100;
+        var descontado=valor*desc1;
+        var total=valor-descontado;
+        window.alert(total);}
+        else{window.alert("Insira valores válidos");}
     }
 </script>
 </html>

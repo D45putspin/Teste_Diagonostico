@@ -1,44 +1,101 @@
 ##calculadora javascript 
 
-desenvolvemos um calculadora simples em javascript para a aula de desenvolvimento colaborativo de software
+desenvolvemos um calculadora simples e uma calculadora de descontos em javascript para a aula de desenvolvimento colaborativo de software
 
 
 
 ```markdown
 <html>
-<input type="number" id="num1">
-<input type="number" id="num2">
-<button onclick="Myfunction()">adicionar</button>
-    <button onclick="Myfunction1()">subtrair</button>
-    <button onclick="Myfunction2()">dividir </button>
-    <button onclick="Myfunction3()">multiplicar </button>
-    <script>
-    function Myfunction(){
-    var num1= document.getElementById("num1").value;
-       var num2= document.getElementById("num2").value;
-        var conta=(num1*1+num2*1);
-         
-        window.alert(conta);}
-        
-         function Myfunction1(){
-    var num1= document.getElementById("num1").value;
-       var num2= document.getElementById("num2").value;
-        var conta=(num1*1-num2*1);
-         
-        window.alert(conta);}
-        function Myfunction2(){
-    var num1= document.getElementById("num1").value;
-       var num2= document.getElementById("num2").value;
-        var conta=(num1*1/num2*1);
-         
-        window.alert(conta);}
-        function Myfunction3(){
-    var num1= document.getElementById("num1").value;
-       var num2= document.getElementById("num2").value;
-        var conta=(num1*1*num2*1);
-         
-        window.alert(conta);}
-    </script>
+    
+<head>
+    <meta charset="utf-8">
+    <meta title="calculadora">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+
+<body class="container bg-secondary text-light">
+    <main class="mt-3 row">
+        <section id="sectionCalculadora" class="col-6">
+            <h1 class="p-2">Calculadora</h1>
+            <form class="row p-2">
+                <div class="form-group col-6">
+                    <label for="num1">Número 1</label>
+                    <input type="number" class="form-control" id="num1">
+                </div>
+                <div class="form-group col-6">
+                    <label for="num2">Número 2</label>
+                    <input type="number" class="form-control" id="num2">
+                </div>
+            </form>
+            <form>
+                <div class="form-group">
+                    <select id="tipo" name="tipo" class="custom-select">
+                        <option selected disabled>Escolher operação matemática</option>
+                        <option value="ad">Adicionar</option>
+                        <option value="sub">Subtrair</option>
+                        <option value="mult">Multiplicar</option>
+                        <option value="div">Dividir</option>
+                      </select>
+                </div>
+                <button onclick="myfunction()" class="btn btn-dark btn-block">Calcular</button>
+            </form>
+        </section>
+        <section id="sectionDescontos" class="col-6">
+            <h1 class="p-2">Calculadora de descontos</h1>
+            <form class="row p-2">
+                <div class="form-group col-6">
+                    <label for="valor">Valor</label>
+                    <input type="number" class="form-control" id="valor">
+                </div>
+                <div class="form-group col-6">
+                    <label for="desconto">Desconto</label>
+                    <input type="number" class="form-control" id="desconto">
+                </div>
+                <button onclick="myfunction1()" class="btn btn-dark btn-block">Calcular Desconto</button>
+            </form>
+        </section>
+    </main>
+</body>
+<script>
+    function myfunction() {
+        var num1 = document.getElementById("num1").value;
+        var num2 = document.getElementById("num2").value;
+        var e = document.getElementById("tipo");
+        var op = e.value;
+        if (num1 != "" && num2 != "") {
+            switch (op) {
+                case 'sub':
+                    window.alert(num1 - num2);
+                    break;
+                case 'ad':
+                    window.alert(parseInt(num1) + parseInt(num2));
+                    break;
+                case 'mult':
+                    window.alert(num1 * num2);
+                    break;
+                case 'div':
+                    window.alert(num1 / num2);
+                    break;
+                default:
+                    console.log(`Escolha alguma operação a ser feita.`);
+            }
+        }
+    }
+    function myfunction1() {
+        var valor = document.getElementById("valor").value;
+        var desconto = document.getElementById("desconto").value;
+        if (valor > 0 && desconto >= 0 && desconto <= 100) {
+            var desc1 = desconto / 100;
+            var descontado = valor * desc1;
+            var total = valor - descontado;
+            window.alert(total);
+        }
+        else { window.alert("Insira valores válidos"); }
+    }
+</script>
+
 </html>
 ```
 

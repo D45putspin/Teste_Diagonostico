@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: actions
     - uses: actions/checkout@v1
     - name: Deploy to Server
     - uses: easingthemes/ssh-deploy@v2.1.5

@@ -8,9 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: actions
     - uses: actions/checkout@v1
-    - name: Deploy to Server
+    - name: Deploy to Staging server
       uses: easingthemes/ssh-deploy@v2.1.5
       env:
           SSH_PRIVATE_KEY: ${{ secrets.sshkey }}

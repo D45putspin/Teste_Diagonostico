@@ -1,0 +1,21 @@
+name: deployproject
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Deploy to Server
+    - uses: easingthemes/ssh-deploy@v2.1.5
+      env:
+          SSH_PRIVATE_KEY: ${{ secrets.sshkey }}
+          ARGS: "-rltgoDzvO --delete"
+          SOURCE: "dist/"
+          REMOTE_HOST: ${{ secrets.ip }}
+          REMOTE_USER: ${{ secrets.uname }}
+          TARGET: ${{ secrets.target}}
+     

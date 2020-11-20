@@ -1,7 +1,7 @@
 name: CI
 on: [push]
 jobs:
-  deploy::
+  deploy:
    if: github.ref == 'refs/heads/New-Branch'
    runs-on: [ubuntu-latest]
    steps:

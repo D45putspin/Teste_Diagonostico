@@ -13,7 +13,7 @@ jobs:
       uses: easingthemes/ssh-deploy@v2.1.5
       env:
           SSH_PRIVATE_KEY: ${{ secrets.sshkey }}
-          SOURCE: "/dist"
+          SOURCE: ""
           REMOTE_HOST: ${{ secrets.ip }}
           REMOTE_USER: ${{ secrets.uname }}
           TARGET: ${{ secrets.target}}
